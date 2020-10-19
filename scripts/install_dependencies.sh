@@ -3,7 +3,7 @@
 install_service() {
   serviceName=$1
 
-  if systemctl --all --type service | grep -q "$serviceName";then
+  if ! [-z $serviceName];then
       echo "$serviceName exists."
   else
       echo "$serviceName does NOT exist."
@@ -19,7 +19,6 @@ install_process() {
       sudo amazon-linux-extras install epel
       sudo yum install nodejs -y
       sudo npm install -g yarn
-      exit
   fi
 }
 
