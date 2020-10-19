@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 install_service() {
-  serviceName=$1
+  serviceName=$(which $1)
 
   if ! [-z $serviceName];then
       echo "$serviceName exists."
